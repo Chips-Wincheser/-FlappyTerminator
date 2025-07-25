@@ -4,7 +4,7 @@ public class BulletSpawner : SpawnerBase
 {
     protected override void Spawn()
     {
-        var bullet = _pool.GetObject();
+        GameObject bullet = _pool.GetObject();
         bullet.transform.position = _transform.position;
         bullet.gameObject.SetActive(true);
 

@@ -11,24 +11,6 @@ public class Bullet : MonoBehaviour
         transform.Translate(_direction * _speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.TryGetComponent<Bird>(out _) || collider.TryGetComponent<EnemyRemover>(out _))
-        {
-            Destroy(gameObject);
-        }
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<Enemy>(out _))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
-    }
-
     public void SetDirection( Vector2 direction)
     {
         _direction=direction;

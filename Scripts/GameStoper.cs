@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStoper : MonoBehaviour
 {
-    public static void GameOvering()
+    public static void StopTime()
     {
         Time.timeScale=0;
     }

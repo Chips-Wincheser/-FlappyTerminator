@@ -36,12 +36,12 @@ public class BirdMover : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerInput.Jumping+=Jumped;
+        _playerInput.Jumping+=Jump;
     }
 
     private void OnDisable()
     {
-        _playerInput.Jumping-=Jumped;
+        _playerInput.Jumping-=Jump;
     }
 
     private void FixedUpdate()
@@ -56,7 +56,7 @@ public class BirdMover : MonoBehaviour
         _transform.rotation=Quaternion.Lerp(_transform.rotation, _minRotation, _rotationSpeed*Time.deltaTime);
     }
 
-    private void Jumped()
+    private void Jump()
     {
         _isJump=true;
     }

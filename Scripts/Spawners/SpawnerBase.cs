@@ -34,5 +34,5 @@ abstract public class SpawnerBase : MonoBehaviour
         }
     }
 
-    abstract protected void Spawn();
+    protected abstract void Spawn();
 }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(BirdMover))]
@@ -10,5 +9,4 @@ public class Bird : MonoBehaviour
     {
         _birdMover = GetComponent<BirdMover>();
     }
-
 }
