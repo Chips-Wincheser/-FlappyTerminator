@@ -1,23 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
-abstract public class SpawnerBase : MonoBehaviour
+abstract public class SpawnerBase<T> : MonoBehaviour where T : Component
 {
-    [SerializeField] protected float _delay;
-    [SerializeField] protected Pool _pool;
+    [SerializeField] protected float Delay;
+    [SerializeField] protected Pool<T> Pool;
 
     private WaitForSeconds _waitForSeconds;
-    protected Transform _transform;
+    protected Transform Transform;
 
     private void Awake()
     {
-        _waitForSeconds=new WaitForSeconds(_delay);
-        _transform=transform;
+        _waitForSeconds=new WaitForSeconds(Delay);
+        Transform=transform;
     }
 
     private void OnEnable()
     {
-        StartCoroutine(GanerateEnemy());
+        StartCoroutine(Generate());
     }
 
     private void OnDisable()
@@ -25,7 +25,7 @@ abstract public class SpawnerBase : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private IEnumerator GanerateEnemy()
+    private IEnumerator Generate()
     {
         while (enabled)
         {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RespownButton : MonoBehaviour
+public class RespawnButton : MonoBehaviour
 {
     [SerializeField] private Button Button;
 
