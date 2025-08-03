@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class BulletSpawner : SpawnerBase<Bullet>
 {
+    [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private Vector3 _offset;
+
+    private Vector3 _startPoint=new Vector3(0,0,0);
+
     protected override void Spawn()
     {
-        Bullet bullet = Pool.GetObject();
-        bullet.transform.position = Transform.position;
-        bullet.gameObject.SetActive(true);
-
-        if (bullet.TryGetComponent<Bullet>(out var bulletComponent))
+        if(_enemySpawner.SpawnPoint!=_startPoint)
         {
-            bulletComponent.SetDirection(Vector2.left);
+            Bullet bullet = Pool.GetObject();
+            bullet.transform.position = _enemySpawner.SpawnPoint+_offset;
+            bullet.gameObject.SetActive(true);
+        
+            bullet.RotateBy(0,Vector2.left);
         }
     }
 }

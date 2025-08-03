@@ -7,8 +7,6 @@ public class Pool<T> : MonoBehaviour where T : Component
 
     private Queue<T> _pool; 
 
-    public IEnumerable<T> PoolObjects=> _pool;
-
     private void Awake()
     {
         _pool = new Queue<T>();
@@ -16,7 +14,7 @@ public class Pool<T> : MonoBehaviour where T : Component
 
     public T GetObject()
     {
-        if(_pool.Count == 0)
+        if (_pool.Count == 0)
         {
             var poolObject = Instantiate(_prefab);
 

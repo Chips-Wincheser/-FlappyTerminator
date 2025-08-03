@@ -11,13 +11,10 @@ public class Bullet : MonoBehaviour
         transform.Translate(_direction * _speed * Time.deltaTime);
     }
 
-    public void SetDirection( Vector2 direction)
+    public void RotateBy(float deltaDegrees, Vector2 direction)
     {
         _direction=direction;
-        
-        if(gameObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
-        {
-            spriteRenderer.flipX = _direction.x > 0;
-        }
+
+        transform.Rotate(0f, 0f, deltaDegrees);
     }
 }
